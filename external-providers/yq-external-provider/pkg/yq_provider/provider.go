@@ -43,17 +43,12 @@ type referenceCondition struct {
 }
 
 type k8sResourceCondition struct {
-	ApiVersion     string `yaml:"apiVersion"`
-	Kind           string `yaml:"kind"`
-	DeprecatedIn   string `yaml:"deprecatedIn"`
-	RemovedIn      string `yaml:"removedIn"`
-	ReplacementAPI string `yaml:"replacementAPI"`
+	ImageTag string `yaml:"imageTag"`
 }
 
 type k8sOutput struct {
-	ApiVersion k8skey
-	Kind       k8skey
-	URI        string
+	ImageTag k8skey
+	URI      string
 }
 
 type k8skey struct {
