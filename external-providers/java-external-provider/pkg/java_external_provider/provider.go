@@ -322,8 +322,10 @@ func (p *javaProvider) Init(ctx context.Context, log logr.Logger, config provide
 	additionalBuiltinConfig.DependencyPath = config.DependencyPath
 
 	// handle proxy settings
-	for k, v := range config.Proxy.ToEnvVars() {
-		os.Setenv(k, v)
+	if config.Proxy != nil {
+		for k, v := range config.Proxy.ToEnvVars() {
+			os.Setenv(k, v)
+		}
 	}
 
 	args := []string{
